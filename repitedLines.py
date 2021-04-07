@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
+"""
+Busca líneas repetidas en un fichero.
 
+Uso:
+python repitedLines.py <input_file>
+"""
 import sys
 
 
