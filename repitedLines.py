@@ -25,7 +25,7 @@ def search_match(input_file, line:str, line_number:int):
 if __name__== "__main__":
     if len(sys.argv) == 1:
         print("usage:")
-        print("     ",sys.argv[0]," ","input_file")
+        print("     ","python"," ",sys.argv[0]," ","input_file")
         exit(85)
 
     input_file = sys.argv[1]
