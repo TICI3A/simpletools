@@ -9,9 +9,22 @@
 
 function main
 {
-    cd /tmp
-    cp "$1" /tmp -r
-    tar -czf "$1".tar.gz "/tmp/$1"
+    mkdir /storage
+    cd /storage
+    cp "$1" /storage -r
+    last=ls /storage | grep ".*.tar.gz" | tail -1 | awk -F\. '{ print $2 }'
+
+    if [[ $last -gt 5  ]]
+    then
+        last=0
+    elif [[ $last == ''  ]]
+    then
+        last=0
+    else
+        last=$(($last + 1))
+    fi
+    
+    tar -czf "$1"."$last".tar.gz "/storage/$1"
 
 }
 
