@@ -9,7 +9,7 @@
 
 function main
 {
-    mkdir /storage
+    mkdir -p /storage/sync
     cd /storage
     cp "$1" /storage -r
     last=ls /storage | grep ".*.tar.gz" | tail -1 | awk -F\. '{ print $2 }'
@@ -24,8 +24,9 @@ function main
         last=$(($last + 1))
     fi
     
-    tar -czf "$1"."$last".tar.gz "/storage/$1"
-
+    filename="$1"."$last".tar.gz
+    tar -czf "$filename" "/storage/$1"
+    mv "$filename" "/storage/sync
 }
 
 
