@@ -11,7 +11,7 @@ function main
 {
     mkdir -p /storage/sync
     cd /storage
-    cp "$1" /storage -r
+    rsync -rpg --delete "$1" /storage
     last=ls /storage | grep ".*.tar.gz" | tail -1 | awk -F\. '{ print $2 }'
 
     if [[ $last -gt 5  ]]
@@ -24,7 +24,7 @@ function main
         last=$(($last + 1))
     fi
     
-    filename="$1"."$last".tar.gz
+    filename="$1"."$last"."$(date +%d%m%Y)".tar.gz
     tar -czf "$filename" "/storage/$1"
     mv "$filename" "/storage/sync
 }
