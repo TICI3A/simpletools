@@ -12,7 +12,7 @@ function main
 {
     mkdir -p /storage/sync
     cd /storage
-    rsync -rpg --delete "$1" /storage
+    rsync -lrpg --delete "$1" /storage
     last=$(ls /storage/sync | grep ".*.tar.gz" | tail -1 | awk -F\. '{ print $2 }')
     echo "1 $last"
     if [[ $last -gt 5  ]]
