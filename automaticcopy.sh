@@ -5,6 +5,7 @@
 # 
 #
 # v.2021.05.03 ubuntu 20.04 test
+# v.2021.05.11 rsync tested, somes fixs
 # ***********************
 
 function main
@@ -12,8 +13,8 @@ function main
     mkdir -p /storage/sync
     cd /storage
     rsync -rpg --delete "$1" /storage
-    last=ls /storage | grep ".*.tar.gz" | tail -1 | awk -F\. '{ print $2 }'
-
+    last=$(ls /storage/sync | grep ".*.tar.gz" | tail -1 | awk -F\. '{ print $2 }')
+    echo "1 $last"
     if [[ $last -gt 5  ]]
     then
         last=0
@@ -21,12 +22,13 @@ function main
     then
         last=0
     else
+        echo "2 $last"
         last=$(($last + 1))
     fi
     
     filename="$1"."$last"."$(date +%d%m%Y)".tar.gz
     tar -czf "$filename" "/storage/$1"
-    mv "$filename" "/storage/sync
+    mv "$filename" "/storage/sync"
 }
 
 
