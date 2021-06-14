@@ -3,7 +3,7 @@
 # **********************
 # automaticcopy
 # 
-#
+# v.2021.06.14 fix: se llenaba el disco de copias
 # v.2021.05.03 ubuntu 20.04 test
 # v.2021.05.11 rsync tested, somes fixs
 # ***********************
@@ -26,7 +26,7 @@ function main
         last=$(($last + 1))
     fi
     
-    filename="$1"."$last"."$(date +%d%m%Y)".tar.gz
+    filename="$1"."$last".tar.gz
     tar -czf "$filename" "/storage/$1"
     mv "$filename" "/storage/sync"
 }
