@@ -13,7 +13,7 @@ ln -s /usr/local/openssl/include/openssl /usr/include/openssl
 ln -s /usr/local/openssl/lib/libssl.so.1.1 /usr/local/lib64/libssl.so
 ln -s /usr/local/openssl/bin/openssl /usr/bin/openssl
 
-echo "/usr/local/openssl/lib" >> /etc/ld.so.conf
-ldconfig -v 
+echo "/usr/local/openssl/lib" >> /etc/ld.so.conf 
+ldconfig -v > /dev/null
 
 
