@@ -2,7 +2,7 @@
 
 version=1.1.1k
 
-wget https://www.openssl.org/sourcec/openssl-$version.tar.gz
+wget https://www.openssl.org/source/openssl-$version.tar.gz
 tar -zxvf openssl-$version.tar.gz
 cd openssl-$version
 ./config --prefix=/usr/local/openssl
