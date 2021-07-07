@@ -6,6 +6,7 @@ old=447
 wget http://mirrors.kernel.org/gnu/gcc/gcc-$version/gcc-$version.tar.gz
 tar -zxvf gcc-$version.tar.gz
 cd gcc-$version
+./configure
 make
 make install
 
