@@ -3,7 +3,7 @@
 # **********************
 # changehostname
 # 
-#
+# v.2026.11.24 fix set sin global, deleted sudo
 # v.2021.03.12 ubuntu 20.04 test
 # ***********************
 
@@ -13,7 +13,7 @@ function main
     newhost=$1
     echo "actual hostname $oldhost"
     hostnamectl set-hostname $newhost
-    sed -i "s/${oldhost}/${newhost}/" /etc/hosts
+    sed -i "s/${oldhost}/${newhost}/g" /etc/hosts
     hostnamectl
     echo "system go to reboot in 5 seg"
     sleep 5
