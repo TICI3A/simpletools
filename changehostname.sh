@@ -12,12 +12,12 @@ function main
     oldhost=$HOSTNAME
     newhost=$1
     echo "actual hostname $oldhost"
-    sudo hostnamectl set-hostname $newhost
-    sudo sed -i "s/${oldhost}/${newhost}/" /etc/hosts
+    hostnamectl set-hostname $newhost
+    sed -i "s/${oldhost}/${newhost}/" /etc/hosts
     hostnamectl
     echo "system go to reboot in 5 seg"
     sleep 5
-    sudo reboot
+    reboot
 }
 
 
